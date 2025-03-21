@@ -67,7 +67,7 @@ def kmeans(X : np.ndarray, K : int, max_iter : int = 20, intial_centroids : np.n
         idx = assign_centroids(X, centroids)
         new_K = len(np.unique(idx))
         centroids = update_centroids(X, idx, new_K)
-        if np.all(prev_centroids == centroids):
+        if K == new_K and np.all(prev_centroids == centroids):
             break
         prev_centroids = centroids.copy()
 
